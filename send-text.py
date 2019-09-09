@@ -2,8 +2,8 @@ from twilio.rest import Client
 import datetime
 import random
 
-account_sid = "AC9cfa721d5f001a66ee604825d6150775"
-auth_token = "6c16a26b9957ad54d4d6b0da0f422728"
+account_sid = "your_account_sid"
+auth_token = "your_auth_token"
 client = Client(account_sid, auth_token)
 
 d = datetime.datetime.now()
@@ -14,8 +14,8 @@ if d.isoweekday() in range(1, 6):
     if d.hour in range(10, 18):
         message = client.messages.create(
             body=random.choice(text),
-            to="+447393216558",
-            from_="+441613751662"
+            to="your_phone_number",
+            from_="your_twilio_number"
         )
         print (message.account_sid)
     else:
